@@ -23,3 +23,15 @@ IceField::IceField(int rows, int cols, int startRow, int startCol, int numMoves)
     }
 }
 
+
+IceField::~IceField()
+{
+    // Since the grid was dynamically allocated, it needs to be
+    // explicitly deallocated. First delete each row, then the
+    // array of pointers to those rows.
+    for (int i = 0; i < rows; ++i)
+    {
+        delete[] grid[i];
+    }
+    delete[] grid;
+}
