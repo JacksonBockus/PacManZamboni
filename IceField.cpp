@@ -49,7 +49,13 @@ void IceField::clean()
         // Moves the zamboni in the current direction
         // and with the correct step size.
         moveZamboni();
-                
+        
+        // Changes the color. If it gets to the point where
+        // there have been more colors than the stated max,
+        // wraps around back to the zero color.
+        ++currentColor;
+        currentColor %= NUMBER_OF_COLORS;
+        
         // Turns the zamboni to face its new direction
         turnZamboni();
         
@@ -99,3 +105,4 @@ void IceField::moveZamboni()
     grid[zamboniRow][zamboniCol] = ZAMBONI;
     
 }
+
