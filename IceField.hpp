@@ -44,7 +44,7 @@ public:
      * character '.' representing white ice, and the character
      * '@' representing the current location of the Zamboni. 
      */
-    friend std::ostream& operator<<(std::ostream& o, const IceField ice);
+    friend std::ostream& operator<<(std::ostream& o, const IceField &ice);
     
 private:
     
