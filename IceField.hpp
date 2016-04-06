@@ -119,6 +119,10 @@ private:
      * it wraps around to the opposite edge.
      */
     void moveZamboni(int distance);
+    
+    /* Turns the zamboni clockwise.
+     */
+    void turnZamboni();
 };
 
 // Closes #include guard.
