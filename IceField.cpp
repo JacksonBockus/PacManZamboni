@@ -11,6 +11,9 @@ IceField::IceField(int rows, int cols, int startRow, int startCol, int numMoves)
     // The zamboni starts facing North.
     currentDirection = NORTH;
     
+    // Give the zamboni its starting step size.
+    stepSize = FIRST_STEP_SIZE;
+    
     // Creates an array of rows for each row of ice squares
     grid = new int*[rows];
     
@@ -39,3 +42,18 @@ IceField::~IceField()
     delete[] grid;
 }
 
+void IceField::clean()
+{
+    for (int i = 0; i < numMoves; ++i)
+    {
+        // Moves the zamboni in the current direction
+        // and with the correct step size.
+        moveZamboni();
+        
+        // Turns the zamboni to face its new direction
+        turnZamboni();
+        
+        // The zamboni will move one step farther next time
+        ++stepSize;
+    }
+}
