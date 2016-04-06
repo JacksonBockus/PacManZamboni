@@ -37,7 +37,7 @@ public:
      * end loop
      * The zamboni starts by facing up.
      */
-    clean();
+    void clean();
     
     /* Outputs a visual representation of the ice field, with
      * the letters A-Z representing the different colors, the
