@@ -132,7 +132,7 @@ private:
      * including the square it finishes on. If it moves across one edge,
      * it wraps around to the opposite edge.
      */
-    void moveZamboni(int distance);
+    void moveZamboni();
     
     /* Turns the zamboni clockwise.
      */
