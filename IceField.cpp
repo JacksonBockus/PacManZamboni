@@ -103,11 +103,18 @@ void IceField::moveZamboni()
             case WEST  : --zamboniCol; break;
             default : break;
         }
+        
+        // Causes the zamboni to wrap around if it has reached
+        // an edge. Adding rows and cols respectively in the
+        // parenthetical expressions makes sure that negative
+        // values will wrap around correctly because % is not
+        // a modulo operator but a division remainder operator. 
+        zamboniRow = (zamboniRow + rows) % rows;
+        zamboniCol = (zamboniCol + cols) % cols;
     }
     
     // Mark the resting location of the zamboni.
     grid[zamboniRow][zamboniCol] = ZAMBONI;
-    
 }
 
 void IceField::turnZamboni()
