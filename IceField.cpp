@@ -2,7 +2,11 @@
 #include <iostream>
 
 IceField::IceField(int rows, int cols, int startRow, int startCol, int numMoves)
-    : rows(rows), cols(cols), startRow(startRow), numMoves(numMoves)
+    : rows(rows)
+    , cols(cols)
+    , zamboniRow(startRow)
+    , zamboniCol(startCol)
+    , numMoves(numMoves)
 {
     // The zamboni starts facing North.
     currentDirection = NORTH;
