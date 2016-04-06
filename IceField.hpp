@@ -1,6 +1,6 @@
 // #include guards
-#ifndef ICEFIELD_H
-#define ICEFIELD_H
+#ifndef ICEFIELD_HPP
+#define ICEFIELD_HPP
 
 // Used for overloading << operator with an ostream
 #include <iostream>
