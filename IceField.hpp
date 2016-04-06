@@ -2,7 +2,7 @@
 #ifndef ICEFIELD_H
 #define ICEFIELD_H
 
-// Used for 
+// Used for overloading << operator with an ostream
 #include <iostream>
 
 /* A class representing an ice rink that, like in Pac-Man and
