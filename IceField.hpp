@@ -48,6 +48,11 @@ public:
     
 private:
     
+    /* The number of steps the zamboni should take the first time
+     * it moves
+     */
+    static const int FIRST_STEP_SIZE;
+    
     /* The number of colors the zamboni can paint. Since each
      * letter of the alphabet represents a different color,
      * there are 26 possible colors.
@@ -97,7 +102,7 @@ private:
     
     /* Number of times the zamboni moves and changes color.
      */
-    int numMoves;
+    const int numMoves;
     
     /* Distance the zamboni should move in the next direction.
      */

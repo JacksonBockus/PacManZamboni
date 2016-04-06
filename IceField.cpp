@@ -27,7 +27,6 @@ IceField::IceField(int rows, int cols, int startRow, int startCol, int numMoves)
     }
 }
 
-
 IceField::~IceField()
 {
     // Since the grid was dynamically allocated, it needs to be
@@ -39,3 +38,4 @@ IceField::~IceField()
     }
     delete[] grid;
 }
+
