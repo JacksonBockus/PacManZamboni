@@ -81,19 +81,19 @@ private:
     
     /* Number of rows in the ice field.
      */
-    int rows;
+    const int rows;
     
     /* Number of columns in the ice field
      */
-    int cols;
+    const int cols;
     
-    /* Initial row number of the zamboni, zero-indexed
+    /* Current row number of the zamboni, zero-indexed
      */
-    int startRow;
+    int zamboniRow;
     
-    /* Initial column number of the zamboni, zero-indexed
+    /* Current column number of the zamboni, zero-indexed
      */
-    int startCol;
+    int zamboniCol;
     
     /* Number of times the zamboni moves and changes color.
      */
