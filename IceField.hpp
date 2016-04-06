@@ -51,7 +51,7 @@ private:
     /* The number of steps the zamboni should take the first time
      * it moves
      */
-    static const int FIRST_STEP_SIZE;
+    static const int FIRST_STEP_SIZE = 1;
     
     /* The number of colors the zamboni can paint. Since each
      * letter of the alphabet represents a different color,
@@ -119,7 +119,7 @@ private:
      * To guarantee this, it should always be modded by NUMBER_OF_COLORS
      * after incrementing.
      */
-    int currentColor = 0;
+    int currentColor;
     
     /* An integer representing the direction in which the zamboni is
      * moving. It should always have the value NORTH, EAST, SOUTH, or

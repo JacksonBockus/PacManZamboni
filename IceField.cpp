@@ -14,15 +14,18 @@ IceField::IceField(int rows, int cols, int startRow, int startCol, int numMoves)
     // Give the zamboni its starting step size.
     stepSize = FIRST_STEP_SIZE;
     
+    // Starts at the zero color
+    currentColor = 0;
+    
     // Creates an array of rows for each row of ice squares
-    grid = new int*[rows];
+    grid = new char*[rows];
     
     // Makes each pointer in the grid array point to a row with
     // the correct number of columns. Then fills each row
     // with the character that represents uncolored ice,
     for (int i = 0; i < rows; ++i)
     {
-        grid[i] = new int[cols];
+        grid[i] = new char[cols];
         for (int j = 0; j < cols; ++j)
         {
             grid[i][j] = WHITE_ICE;
@@ -66,14 +69,15 @@ void IceField::clean()
 
 std::ostream& operator<<(std::ostream& o, const IceField &ice)
 {
-    for (int i = 0; i < rows; ++i)
+    for (int i = 0; i < ice.rows; ++i)
     {
-        for (int j = 0; j < cols; ++j)
+        for (int j = 0; j < ice.cols; ++j)
         {
             o << ice.grid[i][j];
         }
         o << std::endl;
     }
+    return o;
 }
 
 void IceField::moveZamboni()
@@ -113,7 +117,7 @@ void IceField::turnZamboni()
     switch(currentDirection)
     {
         case NORTH : currentDirection = EAST; break;
-        case EAST  : currentDireciton = SOUTH; break;
+        case EAST  : currentDirection = SOUTH; break;
         case SOUTH : currentDirection = WEST; break;
         case WEST  : currentDirection = NORTH; break;
         // if something's gone horribly wrong and the currentDirection

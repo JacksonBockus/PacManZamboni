@@ -23,7 +23,7 @@ int main()
     --startingRow;
     --startingColumn;
     
-    IceField rink(rows, columns, startingRow, startingColumn, int numSteps);
+    IceField rink(rows, columns, startingRow, startingColumn, numSteps);
     rink.clean();
-    std::cout << rink << endl;
+    std::cout << rink << std::endl;
 }
