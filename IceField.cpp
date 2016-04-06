@@ -106,3 +106,20 @@ void IceField::moveZamboni()
     
 }
 
+void IceField::turnZamboni()
+{
+    // This implementation turns the zamboni 90 degrees clockwise
+    // as defined in the specification. 
+    switch(currentDirection)
+    {
+        case NORTH : currentDirection = EAST; break;
+        case EAST  : currentDireciton = SOUTH; break;
+        case SOUTH : currentDirection = WEST; break;
+        case WEST  : currentDirection = NORTH; break;
+        // if something's gone horribly wrong and the currentDirection
+        // isn't North, South, East, or West, this will set it
+        // to move North. May replace with some exception handling
+        // at a later time.
+        default: currentDirection = NORTH; break;
+    }
+}
