@@ -49,7 +49,7 @@ void IceField::clean()
         // Moves the zamboni in the current direction
         // and with the correct step size.
         moveZamboni();
-        
+                
         // Turns the zamboni to face its new direction
         turnZamboni();
         
@@ -70,3 +70,32 @@ std::ostream& operator<<(std::ostream& o, const IceField &ice)
     }
 }
 
+void IceField::moveZamboni()
+{
+    for (int i = 0; i < stepSize; ++i)
+    {
+        // Paints the current location of the zamboni.
+        // Note that the location of this statement means that
+        // the final location of the zamboni is not painted.
+        // This is intended behavior, since the final location
+        // of the zamboni gets a special character.
+        grid[zamboniRow][zamboniCol] = ZERO_COLOR + currentColor;
+        
+        // Moves the zamboni one square in its current direction.
+        // It may be faster to put the condition here outside of 
+        // the loop, since the value of currentDirection does not
+        // change during the loop.
+        switch (currentDirection)
+        {
+            case NORTH : --zamboniRow; break;
+            case EAST  : ++zamboniCol; break;
+            case SOUTH : ++zamboniRow; break;
+            case WEST  : --zamboniCol; break;
+            default : break;
+        }
+    }
+    
+    // Mark the resting location of the zamboni.
+    grid[zamboniRow][zamboniCol] = ZAMBONI;
+    
+}
