@@ -62,6 +62,15 @@ private:
      */
     static const char ZERO_COLOR = 'A';
     
+    /* The character that represents uncolored white ice.
+     */
+    static const char WHITE_ICE = '.';
+    
+    /* The character that represents the current location of the
+     * zamboni on the ice.
+     */
+    static const char ZAMBONI = '@';
+    
     /* Constants that represent the four directions in which the
      * zamboni can move.
      */
