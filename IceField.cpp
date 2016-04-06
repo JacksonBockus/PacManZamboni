@@ -57,3 +57,16 @@ void IceField::clean()
         ++stepSize;
     }
 }
+
+std::ostream& operator<<(std::ostream& o, const IceField &ice)
+{
+    for (int i = 0; i < rows; ++i)
+    {
+        for (int j = 0; j < cols; ++j)
+        {
+            o << ice.grid[i][j];
+        }
+        o << std::endl;
+    }
+}
+
