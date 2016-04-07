@@ -84,6 +84,21 @@ private:
     static const int SOUTH = 2;
     static const int WEST = 3;
     
+    /* Arrays to look up the change in row and column for any given direction.
+     * It's important to note that the indices of these arrays are the 
+     * int values of the directions listed above, so if you change the values
+     * for the directions, also change the arrays below.
+     */
+    
+    // The change in row when moving north, east, south, and west.
+    static const int rowChange[];
+    
+    // the change in col when moving north, east, south, and west.
+    static const int colChange[];
+    
+    //the direction in which the zamboni will point after turning 90 deg clockwise
+    static const int turn[];
+    
     /* Number of rows in the ice field.
      */
     const int rows;

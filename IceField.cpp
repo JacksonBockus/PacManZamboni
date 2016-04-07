@@ -1,6 +1,10 @@
 #include "IceField.hpp"
 #include <iostream>
 
+const int IceField::rowChange[] = {-1, 0, 1, 0};
+const int IceField::colChange[] = {0, 1, 0, -1};
+const int IceField::turn[] = {EAST, SOUTH, WEST, NORTH};
+
 IceField::IceField(int rows, int cols, int startRow, int startCol, long long int numMoves)
     : rows(rows)
     , cols(cols)
@@ -83,17 +87,10 @@ void IceField::moveZamboni()
         grid[zamboniRow * cols + zamboniCol] = ZERO_COLOR + currentColor;
         
         // Moves the zamboni one square in its current direction.
-        // It may be faster to put the condition here outside of 
-        // the loop, since the value of currentDirection does not
-        // change during the loop.
-        switch (currentDirection)
-        {
-            case NORTH : --zamboniRow; break;
-            case EAST  : ++zamboniCol; break;
-            case SOUTH : ++zamboniRow; break;
-            case WEST  : --zamboniCol; break;
-            default : break;
-        }
+        // Takes advantage of the arrays of row and column changes
+        // defined in the class header.
+        zamboniRow += rowChange[currentDirection];
+        zamboniCol += colChange[currentDirection];
         
         // Causes the zamboni to wrap around if it has reached
         // an edge. Adding rows and cols respectively in the
@@ -110,18 +107,7 @@ void IceField::moveZamboni()
 
 void IceField::turnZamboni()
 {
-    // This implementation turns the zamboni 90 degrees clockwise
-    // as defined in the specification. 
-    switch(currentDirection)
-    {
-        case NORTH : currentDirection = EAST; break;
-        case EAST  : currentDirection = SOUTH; break;
-        case SOUTH : currentDirection = WEST; break;
-        case WEST  : currentDirection = NORTH; break;
-        // if something's gone horribly wrong and the currentDirection
-        // isn't North, South, East, or West, this will set it
-        // to move North. May replace with some exception handling
-        // at a later time.
-        default: currentDirection = NORTH; break;
-    }
+    // Uses the turn array from the class header to determine the
+    // new direction for the zamboni.
+    currentDirection = turn[currentDirection];
 }
