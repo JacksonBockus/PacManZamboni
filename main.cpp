@@ -1,5 +1,6 @@
 // Used for getting parameters from the console
 #include <iostream>
+
 #include "IceField.hpp"
 
 int main()
@@ -27,3 +28,4 @@ int main()
     rink.clean();
     std::cout << rink << std::endl;
 }
+

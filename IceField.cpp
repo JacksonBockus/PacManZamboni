@@ -17,31 +17,22 @@ IceField::IceField(int rows, int cols, int startRow, int startCol, long long int
     // Starts at the zero color
     currentColor = 0;
     
-    // Creates an array of rows for each row of ice squares
-    grid = new char*[rows];
+    // Allocates the array with enough items to represent a grid of
+    // rows x cols squares.
+    grid = new char[rows * cols];
     
-    // Makes each pointer in the grid array point to a row with
-    // the correct number of columns. Then fills each row
-    // with the character that represents uncolored ice,
-    for (int i = 0; i < rows; ++i)
+    // Populates the grid with white ice squares.
+    for (int i = 0; i < rows * cols; ++i)
     {
-        grid[i] = new char[cols];
-        for (int j = 0; j < cols; ++j)
-        {
-            grid[i][j] = WHITE_ICE;
-        }
+        grid[i] = WHITE_ICE;
     }
+    
 }
 
 IceField::~IceField()
 {
     // Since the grid was dynamically allocated, it needs to be
-    // explicitly deallocated. First delete each row, then the
-    // array of pointers to those rows.
-    for (int i = 0; i < rows; ++i)
-    {
-        delete[] grid[i];
-    }
+    // explicitly deallocated. 
     delete[] grid;
 }
 
@@ -73,7 +64,7 @@ std::ostream& operator<<(std::ostream& o, const IceField &ice)
     {
         for (int j = 0; j < ice.cols; ++j)
         {
-            o << ice.grid[i][j];
+            o << ice.grid[i * ice.cols + j];
         }
         o << std::endl;
     }
@@ -89,7 +80,7 @@ void IceField::moveZamboni()
         // the final location of the zamboni is not painted.
         // This is intended behavior, since the final location
         // of the zamboni gets a special character.
-        grid[zamboniRow][zamboniCol] = ZERO_COLOR + currentColor;
+        grid[zamboniRow * cols + zamboniCol] = ZERO_COLOR + currentColor;
         
         // Moves the zamboni one square in its current direction.
         // It may be faster to put the condition here outside of 
@@ -114,7 +105,7 @@ void IceField::moveZamboni()
     }
     
     // Mark the resting location of the zamboni.
-    grid[zamboniRow][zamboniCol] = ZAMBONI;
+    grid[zamboniRow * cols + zamboniCol] = ZAMBONI;
 }
 
 void IceField::turnZamboni()

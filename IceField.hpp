@@ -108,11 +108,13 @@ private:
      */
     int stepSize;
     
-    /* A 2D array that contains the colors of every square on the
+    /* An array that contains the colors of every square on the
      * ice field, with '.' representing white, A-Z representing colors,
      * and '@' representing the current location of the zamboni.
+     * Uses a 1-dimensional array to improve cache locality. In order 
+     * to access the value at row r, column c, use grid[r * cols + c].
      */
-    char** grid;
+    char* grid;
     
     /* An integer representing the color the zamboni is painting.
      * Always meets the condition 0 <= currentColor < NUMBER_OF_COLORS.
