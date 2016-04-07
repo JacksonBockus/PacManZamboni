@@ -9,7 +9,7 @@ int main()
     int columns;
     int startingRow;
     int startingColumn;
-    int numSteps;
+    long long int numSteps;
     
     // Gathers input in the specified order.
     std::cin >> rows;

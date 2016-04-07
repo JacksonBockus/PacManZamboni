@@ -21,7 +21,7 @@ public:
      * RETURN
      **** IceField object created with the given parameters
      */
-    IceField(int rows, int cols, int startRow, int startCol, int numMoves);
+    IceField(int rows, int cols, int startRow, int startCol, long long int numMoves);
     
     /* Safely destroys the IceField object.
      */
@@ -102,7 +102,7 @@ private:
     
     /* Number of times the zamboni moves and changes color.
      */
-    const int numMoves;
+    const long long int numMoves;
     
     /* Distance the zamboni should move in the next direction.
      */

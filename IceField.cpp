@@ -1,7 +1,7 @@
 #include "IceField.hpp"
 #include <iostream>
 
-IceField::IceField(int rows, int cols, int startRow, int startCol, int numMoves)
+IceField::IceField(int rows, int cols, int startRow, int startCol, long long int numMoves)
     : rows(rows)
     , cols(cols)
     , zamboniRow(startRow)
@@ -47,7 +47,7 @@ IceField::~IceField()
 
 void IceField::clean()
 {
-    for (int i = 0; i < numMoves; ++i)
+    for (long long int i = 0; i < numMoves; ++i)
     {
         // Moves the zamboni in the current direction
         // and with the correct step size.
